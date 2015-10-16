@@ -8,6 +8,7 @@
     <body>
         <h1>Pokemon Database</h1>
         
+        
         <a href="read">View All Pokemon</a>
     </body>
 </html>
