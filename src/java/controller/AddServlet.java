@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dbHelpers.AddQuery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -13,13 +14,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Pokemon;
 
 /**
  *
  * @author Christine Heying
  */
-@WebServlet(name = "AddForm", urlPatterns = {"/add"})
-public class AddForm extends HttpServlet {
+@WebServlet(name = "AddServlet", urlPatterns = {"/addPokemon"})
+public class AddServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +40,10 @@ public class AddForm extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddForm</title>");            
+            out.println("<title>Servlet AddServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddForm at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AddServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,8 +61,8 @@ public class AddForm extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-                
-                // Pass execution on to doPost
+            
+            // Pass execution on to doPost
                 doPost(request, response);
     }
 
@@ -75,8 +77,30 @@ public class AddForm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+       
+            // get the data
+            String name = request.getParameter("name");
+            int baseExp = Integer.parseInt(request.getParameter("baseExp"));
+            String type = request.getParameter("type");
+            String species = request.getParameter("species");
+            String region = request.getParameter("region");
             
-            String url = "/add.jsp";
+            // set up a pokemon object
+            Pokemon pokemon = new Pokemon();
+            pokemon.setPokemonName(name);
+            pokemon.setBaseExp(baseExp);
+            pokemon.setType(type);
+            pokemon.setSpecies(species);
+            pokemon.setRegion(region);
+            
+            // set up an addQuery object
+            AddQuery aq = new AddQuery();
+            
+            // pass the friend to addQuery to add to the database
+            aq.doAdd(pokemon);
+            
+            // pass execution control to the ReadServlet
+            String url = "/read";
             
             RequestDispatcher dispatcher = request.getRequestDispatcher(url);
             dispatcher.forward (request, response);
