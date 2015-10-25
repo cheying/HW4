@@ -10,5 +10,11 @@
     <body>
         <h1>Christine's Pokedex</h1>
         <%= table %>
+        
+        <br><br>
+        
+        <a href="add">Add A New Pokemon</a>
+        
+        
     </body>
 </html>
