@@ -107,6 +107,9 @@ public class ReadQuery {
                 table += "</td>";
                 table += "</tr>";
                 
+                table += "<td>";
+                table += "<a href=delete?pokemonID=" + pokemonz.getPokemonID() + ">Delete</a>";
+                table += "</td>";
                 
             }
         } catch (SQLException ex) {
