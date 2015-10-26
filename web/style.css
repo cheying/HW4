@@ -1,0 +1,21 @@
+html{
+    background-color: #D2B48C;
+}
+
+table{
+    border-width: 5px;
+    border-color: #FFFFFF;
+    background-color: #F08080;
+}
+
+tr{
+    border-color: #FFFFFF;
+    border-width: 5px;    
+}
+
+td{
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    border-width: 5px;  
+    
+}
