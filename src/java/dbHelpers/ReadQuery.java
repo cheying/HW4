@@ -105,12 +105,12 @@ public class ReadQuery {
                 table += "<td>";
                 table += pokemonz.getRegion();
                 table += "</td>";
-                table += "</tr>";
                 
                 table += "<td>";
                 table += "<a href=delete?pokemonID=" + pokemonz.getPokemonID() + ">Delete</a>";
                 table += "</td>";
                 
+                table += "</tr>";
             }
         } catch (SQLException ex) {
             Logger.getLogger(ReadQuery.class.getName()).log(Level.SEVERE, null, ex);
