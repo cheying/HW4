@@ -26,8 +26,10 @@
             <label>Region:</label>
             <input type="text" name="region" value="" />
             <br>
+            <div>
             <input type="submit" name="submit" value="Submit" />
             <input type="reset" name="clear" value="Clear" />
+            </div>
         </form>
     </body>
 </html>

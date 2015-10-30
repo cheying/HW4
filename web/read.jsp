@@ -10,6 +10,7 @@
     <% String table = (String) request.getAttribute("table"); %>
     <body>
         <h1>Christine's Pokedex</h1>
+      
         <%= table %>
         
         <br><br>

@@ -2,20 +2,50 @@ html{
     background-color: #D2B48C;
 }
 
-table{
-    border-width: 5px;
-    border-color: #FFFFFF;
-    background-color: #F08080;
+body{
+    margin: auto;
+    width: 60%;
+    
 }
+
+table{
+    background: white;
+    border: 2px solid white;
+    margin: 0px;
+}
+    
+th{
+    margin: 0px;
+    background-color: #FFFF99;
+    color: #696969;
+        
+ }
+    
 
 tr{
-    border-color: #FFFFFF;
-    border-width: 5px;    
+    padding: 0px;
+    background-color: #F08080;
+    color: white;
 }
 
-td{
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-    border-width: 5px;  
+
+form{
+    background-color: #F08080;
+    
+}
+
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 250px;
+    text-align: right;
+    color: white;
+}
+
+
+div{
+    text-align: center;
     
 }

@@ -70,6 +70,31 @@ public class ReadQuery {
         table += "<table border=1>";
         
         try {
+            
+            table += "<tr>";
+                table += "<th>";
+                table += "Pokemon ID";
+                table += "</th>";
+                table += "<th>";
+                table += "Pokemon Name";
+                table += "</th>";
+                table += "<th>";
+                table += "Base Exp";
+                table += "</th>";
+                table += "<th>";
+                table += "Type";
+                table += "</th>";
+                table += "<th>";
+                table += "Species";
+                table += "</th>";
+                table += "<th>";
+                table += "Region";
+                table += "</th>";
+                table += "<th>";
+                table += "Modify Entry";
+                table += "</th>";
+                table += "</tr>";
+                
             while(this.results.next()){
                 
                 Pokemon pokemonz = new Pokemon();
@@ -79,7 +104,6 @@ public class ReadQuery {
                 pokemonz.setType(this.results.getString("type"));
                 pokemonz.setSpecies(this.results.getString("species"));
                 pokemonz.setRegion(this.results.getString("region"));
-                
                 
                 table += "<tr>";
                 table += "<td>";
