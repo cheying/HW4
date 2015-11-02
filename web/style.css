@@ -48,3 +48,11 @@ div{
     text-align: center;
     
 }
+
+
+.update td {
+    border: none;
+    height: 25px;
+    padding: 10px;
+    font-weight: bold;
+}

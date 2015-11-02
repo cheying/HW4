@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
@@ -24,14 +25,12 @@ public class ReadRecord {
 
     private Connection conn;
     private ResultSet results;
-    
+
     private Pokemon pokemon = new Pokemon();
     private int pokemonID;
-    
-    
-    public ReadRecord (int pokemonID)
-    {
-        
+
+    public ReadRecord(int pokemonID) {
+
         Properties props = new Properties(); //MWC
         InputStream instr = getClass().getResourceAsStream("dbConn.properties");
         try {
@@ -49,6 +48,9 @@ public class ReadRecord {
         String url = props.getProperty("server.name");
         String username = props.getProperty("user.name");
         String passwd = props.getProperty("user.password");
+
+        this.pokemonID = pokemonID;
+
         try {
             Class.forName(driver);
         } catch (ClassNotFoundException ex) {
@@ -60,5 +62,41 @@ public class ReadRecord {
             Logger.getLogger(ReadRecord.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-}
 
+    public void doRead() {
+
+        try {
+            // set up a string to hold our qury
+            String query = "SELECT * FROM friends WHERE pokemonID = ?";
+
+            // create a preparedstatement using our query string
+            PreparedStatement ps = conn.prepareStatement(query);
+
+            // fill in the preparedstatement
+            ps.setInt(1, pokemonID);
+
+            // execute the query
+            this.results = ps.executeQuery();
+
+            this.results.next();
+
+            pokemon.setPokemonID(this.results.getInt("pokemonID"));
+            pokemon.setPokemonName(this.results.getString("pokemonName"));
+            pokemon.setBaseExp(this.results.getInt("baseExp"));
+            pokemon.setType(this.results.getString("type"));
+            pokemon.setSpecies(this.results.getString("species"));
+            pokemon.setRegion(this.results.getString("region"));
+       
+        } catch (SQLException ex) {
+            Logger.getLogger(ReadRecord.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public Pokemon getPokemon(){
+        
+        return this.pokemon;
+    }
+    
+
+}
