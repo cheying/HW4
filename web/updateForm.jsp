@@ -11,39 +11,30 @@
     </head>
     <body>
         <h1>Update A Pokemon</h1>
-        
+        <div class="main">
          <form name="updateForm" action="updatePokemon" method="get">
-            
-            <table class="update"
-                <tr>
-                    <td class="right">Pokemon ID:</td>
-                    <td> <input type="text" name="name" value="<%= pokemon.getPokemonID() %>" /></td>
-                </tr>
-                <tr>
-                    <td class="right">Pokemon Name:</td>
-                    <td><input type="text" name="name" value="<%= pokemon.getPokemonName() %>" /></td>
-                </tr>
-                <tr>
-                    <td class="right">Base Exp:</td>
-                    <td><input type="text" name="basexp" value="<%= pokemon.getBaseExp() %>" /></td>
-                </tr>
-                <tr>
-                    <td class="right">Type:</td>
-                    <td><input type="text" name="type" value="<%= pokemon.getPokemonName() %>" /></td>
-                </tr>
-                <tr>
-                    <td class="right">Species:</td>
-                    <td><input type="text" name="species" value="<%= pokemon.getPokemonName() %>" /></td>
-                </tr>
-                <tr>
-                    <td class="right">Region:</td>
-                    <td><input type="text" name="region" value="<%= pokemon.getPokemonName() %>" /></td>
-                </tr>
-            </table>
-            <br>
+             <fieldset>
+                 <label class="right">Pokemon ID:</label>
+                 <input type="text" name="id" value="<%= pokemon.getPokemonID() %>" readonly/>
+                 <br>
+                 <label class="right">Pokemon Name:</label>
+                 <input type="text" name="name" value="<%= pokemon.getPokemonName() %>"/>
+                 <br>
+                 <label class="right">Base Exp:</label>
+                 <input type="text" name="basexp" value="<%= pokemon.getBaseExp() %>"/>
+                 <br>
+                 <label class="right">Type:</label>
+                 <input type="text" name="type" value="<%= pokemon.getType() %>"/>
+                 <br>
+                 <label class="right">Species</label>
+                 <input type="text" name="species" value="<%= pokemon.getSpecies() %>"/>
+                 <br>
+                 <label class="right">Region</label>
+                 <input type="text" name="region" value="<%= pokemon.getRegion() %>"/>  
             <div>
             <input type="submit" name="submit" value="Update" />
             <input type="reset" name="clear" value="Clear" />
+            </div>
             </div>
         </form>
     </body>

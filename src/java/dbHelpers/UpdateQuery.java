@@ -22,7 +22,7 @@ public class UpdateQuery {
 
     public UpdateQuery(){
     
-    Properties props = new Properties(); //MWC
+       Properties props = new Properties(); //MWC
        InputStream instr = getClass().getResourceAsStream("dbConn.properties");
         try {
             props.load(instr);

@@ -67,7 +67,7 @@ public class ReadRecord {
 
         try {
             // set up a string to hold our qury
-            String query = "SELECT * FROM friends WHERE pokemonID = ?";
+            String query = "SELECT * FROM pokemon WHERE pokemonID = ?";
 
             // create a preparedstatement using our query string
             PreparedStatement ps = conn.prepareStatement(query);
