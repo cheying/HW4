@@ -10,5 +10,9 @@
         <h1>Pokemon Database</h1>
         
         <a href="read">View All Pokemon</a>
+        <br>
+        <br>
+        <a href="search.jsp">Search Pokemon</a>
+        
     </body>
 </html>
