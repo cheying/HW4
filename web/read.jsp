@@ -9,6 +9,13 @@
     
     <% String table = (String) request.getAttribute("table"); %>
     <body>
+        
+        <div class="wrap"> <!-- div to hold all other divs -->
+        
+            <%@ include file="includes/header.jsp" %>
+            
+            <%@ include file="includes/menu.jsp" %>
+        
         <h1>Christine's Pokedex</h1>
       
         <%= table %>
@@ -20,6 +27,7 @@
         <br>
         <a href="search.jsp">Search Pokemon</a>
         
+        </div> <!-- close the wrap div -->
         
     </body>
 </html>
